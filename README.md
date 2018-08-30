@@ -27,3 +27,11 @@ This README would normally document whatever steps are necessary to get your app
 
 * Repo owner or admin
 * Other community or team contact
+
+
+### Following tasks for Sprint 1 ###
+
+* Set-up home page
+* Create database
+* Create ERD
+* Find a way to get information to a suitable format in Django

@@ -1,0 +1,16 @@
+<h1>Website btw</h1>
+<form action="{% url 'search:home' %}" method="POST">
+  {% csrf_token %}
+  {{ form }}
+</form>
+
+
+{% if all_cars %}
+  <ul>
+    {% for car in all_cars %}
+    <li><a href="{% url 'search:car_detail' car.id %}">{{car.car_name}}</a></li>
+    {% endfor %}
+  </ul>
+{% else %}
+  <h3>No cars in database<h3>
+{% endif %}

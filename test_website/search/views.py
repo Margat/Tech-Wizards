@@ -6,12 +6,14 @@ from .forms import SearchForm
 # Create your views here.
 # search bar
 def home(request):
+    title = "Home"
     if request.method == 'POST':
         form = SearchForm(request.POST)
         if form.is_valid():
             query = form.cleaned_data['query']
             all_cars = Car.objects.filter(car_name__icontains=query)
             context = {
+                'title': title,
                 'form' : form,
                 'all_cars' : all_cars
             }
@@ -20,6 +22,7 @@ def home(request):
             all_cars = Car.objects.all()
             form = SearchForm()
             context = {
+                'title': title,
                 'all_cars': all_cars,
                 'form' : form
             }

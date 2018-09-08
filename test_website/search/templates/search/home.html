@@ -1,5 +1,7 @@
 {% extends "search/base.html" %}
+{% load static %}
 {% block content %}
+
 <form action="{% url 'search:home' %}" method="POST">
   {% csrf_token %}
   {{ form }}

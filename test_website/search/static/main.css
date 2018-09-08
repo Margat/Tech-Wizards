@@ -1,7 +1,7 @@
 body {
-  background: #fafafa;
+  background: #cccccc;
   color: #333333;
-  margin-top: 5rem;
+  margin-top: 3.5rem;
 }
 
 h1, h2, h3, h4, h5, h6 {
@@ -33,7 +33,7 @@ ul {
   padding: 10px 20px;
   border: 1px solid #dddddd;
   border-radius: 3px;
-  margin-bottom: 20px;
+  margin-bottom: 0px;
 }
 
 .article-title {
@@ -50,7 +50,7 @@ a.article-title:hover {
 }
 
 .article-img {
-  height: 65px;
+  height: 56px;
   width: 65px;
   margin-right: 16px;
 }

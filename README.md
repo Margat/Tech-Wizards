@@ -31,7 +31,7 @@ Make sure that you are in the directory containing the manage.py file in the com
 ### Contribution guidelines ###
 
 * Completed tasks
-Create Homepage with navbar and image (Homepage) by Margat
+/nCreate Homepage with navbar and image (Homepage) by Margat
 Create ERD (Database) by Conorbros
 Create tables for (Database) by Ethra
 * Writing tests

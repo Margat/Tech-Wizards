@@ -11,7 +11,7 @@ def home(request):
         form = SearchForm(request.POST)
         if form.is_valid():
             query = form.cleaned_data['query']
-            all_cars = Car.objects.filter(car_name__icontains=query)
+            all_cars = Car.objects.filter(car_make__icontains=query)
             context = {
                 'title': title,
                 'form' : form,

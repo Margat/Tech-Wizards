@@ -11,7 +11,7 @@
 {% if all_cars %}
   <ul>
     {% for car in all_cars %}
-    <li><a href="{% url 'search:car_detail' car.id %}">{{car.car_make}}</a></li>
+    <li><a href="{% url 'search:car_detail' car.car_id %}">{{car.car_make}}</a></li>
     {% endfor %}
   </ul>
 {% else %}

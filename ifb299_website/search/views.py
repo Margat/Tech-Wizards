@@ -2,30 +2,25 @@ from django.shortcuts import render, get_object_or_404
 from django.http import HttpResponse
 from .models import Car
 from .forms import SearchForm
+from django.shortcuts import redirect
 
 # Create your views here.
 # search bar
 def home(request):
     title = "Home"
-    if request.method == 'POST':
-        form = SearchForm(request.POST)
+    if request.GET.get('query'):
+        form = SearchForm(request.GET)
         if form.is_valid():
             query = form.cleaned_data['query']
             all_cars = Car.objects.filter(car_make__icontains=query)
-            context = {
-                'title': title,
-                'form' : form,
-                'all_cars' : all_cars
-            }
-
     else:
             all_cars = Car.objects.all()
             form = SearchForm()
-            context = {
-                'title': title,
-                'all_cars': all_cars,
-                'form' : form
-            }
+    context = {
+        'title': title,
+        'form' : form,
+        'all_cars' : all_cars
+    }
     return render(request, 'search/home.html', context)
 
 def car_detail(request, id):

@@ -8,9 +8,9 @@
 
     <!-- Bootstrap CSS -->
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
-	
+
 	<link rel="stylesheet" type="text/css" href="{% static 'main.css' %}">
-	
+
 	{% if title %}
 		<title>{{ title }}</title>
 	{% else %}
@@ -37,15 +37,15 @@
             </div>
             <!-- Navbar Right Side -->
             <div class="navbar-nav">
-              <a class="nav-item nav-link" href="#">Login</a>
+              <a class="nav-item nav-link" href="{% url 'admin:index' %}">Login</a>
               <a class="nav-item nav-link" href="#">Register</a>
             </div>
           </div>
         </div>
       </nav>
-      
+
     </header>
-	
+
 	<div class="container">
 		{% block content %}{% endblock %}
 	</div>

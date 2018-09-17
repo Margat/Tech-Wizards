@@ -1,0 +1,20 @@
+{% extends "search/base.html" %}
+{% load static %}
+{% block content %}
+
+<form action="{% url 'search:home' %}" method="GET">
+  {{ form }}
+  <input type ="submit" value="Submit">
+</form>
+
+
+{% if all_cars %}
+  <ul>
+    {% for car in all_cars %}
+    <li><a href="{% url 'search:car_detail' car.car_id %}">{{car.car_make}}</a></li>
+    {% endfor %}
+  </ul>
+{% else %}
+  <h3>No cars in database<h3>
+{% endif %}
+{% endblock content%}

@@ -51,20 +51,38 @@ class Store(models.Model):
     def __str__(self):
         return self.store_name
 
-class Order(models.Model):
-    order_id = models.IntegerField(primary_key=True, default=0)
-    order_create_date = models.CharField(max_length=50)
-    order_pickup_date = models.CharField(max_length=50)
+class Pickup_Store(models.model):
+    order_pickup_store = models.IntegerField()
     order_pickup_store = models.IntegerField()
     pickup_store_name = models.CharField(max_length=50)
     pickup_store_address = models.CharField(max_length=50)
     pickup_store_phone = models.CharField(max_length=50)
     pickup_store_city = models.CharField(max_length=50)
     pickup_store_state = models.CharField(max_length=50)
-    order_return_date = models.CharField(max_length=50)
+
+    order_pickup_date = models.CharField(max_length=50)
+
+    def __str__(self):
+        return self.store_name
+
+class Return_Store(models.Model):
     order_return_store = models.IntegerField()
     return_store_name = models.CharField(max_length=50)
     return_store_address = models.CharField(max_length=50)
     return_store_phone = models.CharField(max_length=50)
     return_store_city = models.CharField(max_length=50)
     return_store_state = models.CharField(max_length=50)
+
+    order_return_date = models.CharField(max_length=50)
+
+    def __str__(self):
+        return self.store_name
+
+class Order(models.Model):
+    PICKUP_OR_RETURN_CHOICE = (
+    ('Pickup'), ('Return')
+    )
+
+    order_id = models.IntegerField(primary_key=True, default=0)
+    order_create_date = models.CharField(max_length=50)
+    Pickup_Or_Return = models.CharField(max_length=6, choices=PICKUP_OR_RETURN_CHOICE)

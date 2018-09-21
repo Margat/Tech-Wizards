@@ -12,7 +12,11 @@ def home(request):
         form = SearchForm(request.GET)
         if form.is_valid():
             query = form.cleaned_data['query']
+            min_price = form.cleaned_data['min_price']
+            max_price = form.cleaned_data['max_price']
             all_cars = Car.objects.filter(car_make__icontains=query)
+            all_cars = all_cars.filter(car_price_new__gte=min_price)
+            all_cars = all_cars.filter(car_price_new__lte=max_price)
     else:
             all_cars = Car.objects.all()
             form = SearchForm()

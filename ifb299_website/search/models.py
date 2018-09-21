@@ -51,7 +51,7 @@ class Store(models.Model):
     def __str__(self):
         return self.store_name
 
-class Pickup_Store(models.model):
+class Pickup_Store(models.Model):
     order_pickup_store = models.IntegerField()
     order_pickup_store = models.IntegerField()
     pickup_store_name = models.CharField(max_length=50)
@@ -77,12 +77,3 @@ class Return_Store(models.Model):
 
     def __str__(self):
         return self.store_name
-
-class Order(models.Model):
-    PICKUP_OR_RETURN_CHOICE = (
-    ('Pickup'), ('Return')
-    )
-
-    order_id = models.IntegerField(primary_key=True, default=0)
-    order_create_date = models.CharField(max_length=50)
-    Pickup_Or_Return = models.CharField(max_length=6, choices=PICKUP_OR_RETURN_CHOICE)

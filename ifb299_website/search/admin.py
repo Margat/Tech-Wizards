@@ -13,9 +13,9 @@ class StoreAdmin(admin.ModelAdmin):
     list_display = ('store_id', 'store_name', 'store_address', 'store_phone', 'store_city', 'store_state')
 
 class OrderAdmin(admin.ModelAdmin):
-##    list_display = ('order_id', 'order_create_date', 'order_pickup_date', 'order_pickup_store', 'pickup_store_name', 'pickup_store_address', 'pickup_store_phone', 'pickup_store_city',
-##                    'pickup_store_state', 'order_return_date', 'order_return_store', 'return_store_name', 'return_store_address', 'return_store_phone', 'return_store_city', 'return_store_state')
-	admin.site.register(Car, CarAdmin)
+    list_display = ('order_id', 'order_create_date', 'order_pickup_date', 'order_pickup_store', 'pickup_store_name', 'pickup_store_address', 'pickup_store_phone', 'pickup_store_city',
+                    'pickup_store_state', 'order_return_date', 'order_return_store', 'return_store_name', 'return_store_address', 'return_store_phone', 'return_store_city', 'return_store_state')
+admin.site.register(Car, CarAdmin)
 admin.site.register(Customer, CustomerAdmin)
 admin.site.register(Store, StoreAdmin)
 admin.site.register(Order, OrderAdmin)

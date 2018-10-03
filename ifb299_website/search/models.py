@@ -35,7 +35,7 @@ class Customer(models.Model):
     customer_name = models.CharField(max_length=50)
     customer_phone = models.CharField(max_length=50)
     customer_address = models.CharField(max_length=50)
-    customer_birthday = models.DateField()
+    customer_birthday = models.CharField(max_length=50)
     customer_occupation = models.CharField(max_length=50)
     customer_gender = models.CharField(max_length = 6, choices=GENDER_CHOICES)
     def __str__(self):

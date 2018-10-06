@@ -8,13 +8,13 @@
 </form>
 
 
-{% if all_cars %}
+{% if car_query_list %}
   <ul>
-    {% for car in all_cars %}
-    <li><a href="{% url 'search:car_detail' car.car_id %}">[Make: {{car.car_make}}] [Model: {{car.car_model}}] [Price: {{car.car_price_new}}]</a></li>
+    {% for car in car_query_list %}
+    <li><a href="{% url 'search:car_detail' car.car_id %}">[Make: {{car.car_make}}] [Model: {{car.car_model}}] [Year: {{car.car_series_year}}] [Price: {{car.car_price_new}}]</a></li>
     {% endfor %}
   </ul>
 {% else %}
-  <h3>No cars in database<h3>
+  <h3>No cars match your query<h3>
 {% endif %}
 {% endblock content%}

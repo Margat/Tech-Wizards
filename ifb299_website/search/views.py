@@ -1,37 +1,42 @@
-from django.shortcuts import render, get_object_or_404
+from django.shortcuts import render, get_object_or_404, redirect
 from django.http import HttpResponse
-from django.shortcuts import redirect
+from django.db.models import Q
 from .models import Car
 from .forms import SearchForm
-
 
 # Creates home page with form
 def home(request):
     title = "Home"
-    if request.GET.get('query') or request.GET.get('min_price') or request.GET.get('max_price'):
-        form = SearchForm(request.GET)
-        if form.is_valid():
-            query = form.cleaned_data['query']
-            min_price = form.cleaned_data['min_price']
-            max_price = form.cleaned_data['max_price']
-            year = form.cleaned_data['year']
-            ################################
-            all_cars = Car.objects.all()
-            if (query != None):
-                all_cars = all_cars.filter(car_make__icontains=query) | all_cars.filter(car_model__icontains=query) | all_cars.filter(car_series__icontains=query)
-            if (min_price != None and max_price != None):
-                all_cars = all_cars.filter(car_price_new__gte=min_price, car_price_new__lte=max_price)
+    form = SearchForm(request.GET)
+    if form.is_valid():
+        car_query_list = Car.objects.all()
+        query = form.cleaned_data['query']
+        min_price = form.cleaned_data['min_price']
+        max_price = form.cleaned_data['max_price']
+        year = form.cleaned_data['year']
+        sort = form.cleaned_data['sort']
+        if not min_price:
+            min_price = 0
+        if not max_price:
+            max_price = 9999999
+        car_query_list = car_query_list.filter(car_price_new__range=(min_price, max_price))
+        if not query == None:
+            car_query_list = car_query_list.filter(Q(car_make__icontains=query) | Q(car_model__icontains=query) | Q(car_series__icontains=query))
+        if year != 'Blank':
+            car_query_list = car_query_list.filter(car_series_year=year)
+        if sort == 'ASC':
+            car_query_list = car_query_list.order_by('car_price_new')
+        if sort == 'DESC':
+            car_query_list = car_query_list.order_by('-car_price_new')
     else:
-            all_cars = Car.objects.all()
+            car_query_list = None
             form = SearchForm()
-    # variables to be parsed to the html template
     context = {
         'title': title,
         'form' : form,
-        'all_cars' : all_cars
+        'car_query_list' : car_query_list
     }
     return render(request, 'search/home.html', context)
-
 
 def car_detail(request, id):
     car = get_object_or_404(Car, pk=id)

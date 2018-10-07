@@ -1,0 +1,20 @@
+{% extends "search/base.html" %}
+{% load static %}
+{% block content %}
+{% if selected_car %}
+  <h1>{{selected_car.car_make}} {{selected_car.car_model}} {{selected_car.car_series}}</h1>
+  <ul>Price (NEW): ${{selected_car.car_price_new}}</ul>
+  <ul>Series year: {{selected_car.car_series_year}}</ul>
+  <ul>Engine size: {{selected_car.car_engine_size}}</ul>
+  <ul>Fuel system: {{selected_car.car_fuel_system}}</ul>
+  <ul>Tank capacity: {{selected_car.car_tank_capacity}}</ul>
+  <ul>Power: {{selected_car.car_power}}</ul>
+  <ul>Seating capacity: {{selected_car.car_seating_capacity}}</ul>
+  <ul>Transmission type: {{selected_car.car_standard_transmission}}</ul>
+  <ul>Body type: {{selected_car.car_body_type}}</ul>
+  <ul>Drive: {{selected_car.car_drive}}</ul>
+  <ul>Wheelbase: {{selected_car.car_wheelbase}}</ul>
+{% else %}
+  <h1>Error! Car not found</h1>
+{% endif %}
+{% endblock content %}

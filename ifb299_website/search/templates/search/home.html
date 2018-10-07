@@ -1,17 +1,14 @@
 {% extends "search/base.html" %}
 {% load static %}
 {% block content %}
-
 <form action="{% url 'search:home' %}" method="GET">
   {{ form }}
   <input type ="submit" value="Submit">
 </form>
-
-
 {% if car_query_list %}
   <ul>
     {% for car in car_query_list %}
-    <li><a href="{% url 'search:car_detail' car.car_id %}">[Make: {{car.car_make}}] [Model: {{car.car_model}}] [Year: {{car.car_series_year}}] [Price: {{car.car_price_new}}]</a></li>
+    <ul><a href="{% url 'search:car_detail' car.car_id %}">{{car.car_make}} {{car.car_model}} {{car.car_series}} {{car.car_series_year}} ${{car.car_price_new}}</a></ul>
     {% endfor %}
   </ul>
 {% else %}

@@ -39,8 +39,11 @@ def home(request):
     return render(request, 'search/home.html', context)
 
 def car_detail(request, id):
-    car = get_object_or_404(Car, pk=id)
-    return HttpResponse("Details for car %s" % id)
+    selected_car = get_object_or_404(Car, pk=id)
+    context = {
+        'selected_car' : selected_car
+    }
+    return render(request, 'search/detail.html', context)
 
 # creates about page
 def about(request):

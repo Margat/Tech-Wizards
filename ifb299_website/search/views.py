@@ -3,6 +3,13 @@ from django.http import HttpResponse
 from django.db.models import Q
 from .models import Car
 from .forms import SearchForm
+from django.shortcuts import render
+
+from django.views import generic
+
+from .models import Article
+
+
 
 # Creates home page with form
 def home(request):
@@ -21,7 +28,7 @@ def home(request):
             max_price = 9999999
         car_query_list = car_query_list.filter(car_price_new__range=(min_price, max_price))
         if not query == None:
-            car_query_list = car_query_list.filter(Q(car_make__icontains=query) | Q(car_model__icontains=query) | Q(car_series__icontains=query))
+            car_query_list = car_query_list.filter(Q(car_make__icontains=query) | Q(car_model__icontains=query) | Q(car_series__icontains=query) | Q(car_body_type__icontains=query))
         if year != 'Blank':
             car_query_list = car_query_list.filter(car_series_year=year)
         if sort == 'ASC':
@@ -68,3 +75,11 @@ def locations(request):
         'title': title
         }
     return render(request, 'search/locations.html', context)
+
+
+class ArticleListView(generic.ListView):
+    template_name = 'search/article_list.html'
+    queryset = Article.objects.all() #search/<modelname>_list.html
+
+    def get_queryset(self):
+        return Car.objects.all()

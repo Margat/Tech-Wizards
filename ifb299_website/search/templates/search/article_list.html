@@ -1,0 +1,10 @@
+{% extends 'search/home.html' %}
+{% load static %}
+{% block article_content %}
+	
+	<ul>
+		{% for album in object_list %}
+			<li><a href="{% url 'search:car_detail' car.car_id %}">{{car.car_make}} {{car.car_model}} {{car.car_series}} {{car.car_series_year}} ${{car.car_price_new}}</a></li>>
+		{% endfor %}
+	</ul>
+{% endblock article_content%}

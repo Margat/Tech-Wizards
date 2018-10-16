@@ -5,11 +5,6 @@ from .models import Car
 from .forms import SearchForm
 from django.shortcuts import render
 
-from django.views import generic
-
-from .models import Article
-
-
 
 # Creates home page with form
 def home(request):
@@ -75,11 +70,3 @@ def locations(request):
         'title': title
         }
     return render(request, 'search/locations.html', context)
-
-
-class ArticleListView(generic.ListView):
-    template_name = 'search/article_list.html'
-    queryset = Article.objects.all() #search/<modelname>_list.html
-
-    def get_queryset(self):
-        return Car.objects.all()

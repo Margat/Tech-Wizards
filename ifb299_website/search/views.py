@@ -10,6 +10,7 @@ from django.shortcuts import render
 def home(request):
     title = "Home"
     form = SearchForm(request.GET)
+    max_items = 21
     if form.is_valid():
         car_query_list = Car.objects.all()
         query = form.cleaned_data['query']
@@ -36,7 +37,7 @@ def home(request):
     context = {
         'title': title,
         'form' : form,
-        'car_query_list' : car_query_list
+        'car_query_list' : car_query_list[0:max_items]
     }
     return render(request, 'search/home.html', context)
 

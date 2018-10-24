@@ -1,12 +1,14 @@
 from django.db import models
 from django.core.validators import RegexValidator
 
+# Regex Validator to validate four digit year fields
 year_validator = RegexValidator(
     regex='[0-9]{4}',
     message='Year must be a four digit number',
     code='Invalid year'
 )
 
+# Represents a Car and its fields in the database
 class Car(models.Model):
     car_id = models.IntegerField(primary_key=True, default=0)
     car_make = models.CharField(max_length=50)
@@ -26,6 +28,7 @@ class Car(models.Model):
     def __str__(self):
         return self.car_make + ' ' + self.car_model
 
+# Represents a Customer and its fields in the database
 class Customer(models.Model):
     GENDER_CHOICES = (
         ('M', 'Male'),
@@ -41,6 +44,7 @@ class Customer(models.Model):
     def __str__(self):
         return self.customer_name
 
+# Represents a Store and its fields in the database
 class Store(models.Model):
     store_id = models.IntegerField(primary_key=True, default=0)
     store_name = models.CharField(max_length=50)
@@ -51,6 +55,7 @@ class Store(models.Model):
     def __str__(self):
         return self.store_name
 
+# Represents an ORder and its fields in the database
 class Order(models.Model):
     order_id = models.IntegerField(primary_key=True, default=0)
     order_create_date = models.CharField(max_length=50)

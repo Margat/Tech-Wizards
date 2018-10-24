@@ -2,11 +2,11 @@
 {% load static %}
 {% block content %}
 {% if selected_car %}
+<head>
   <meta name="viewport" content="width=device-width, initial-scale=1">
-<style>
 
-* {box-sizing: border-box;}
-body {font-family: Verdana, sans-serif;}
+  <style type="text/css">
+    * {box-sizing: border-box;}
 .mySlides {display: none;}
 img {vertical-align: right;}
 
@@ -17,10 +17,6 @@ img {vertical-align: right;}
   margin-left: 150px;
   margin-top: 20px;
 }
-
-
-body
- {background-color: #F0F8FF;}
 
 
 /* Caption text */
@@ -78,9 +74,7 @@ ul {
 }
 
 ul li {
-    padding: 5px;
     margin-left: 10px;
-  margin-top: 7px;
 }
 
 * {
@@ -161,12 +155,44 @@ img {
   border-radius: 10%;
 }
 
+.cell {
+  width: 32%; 
+  margin-right: 
+  calc(53%); 
+  border-collapse: 
+  collapse; 
+  border-color: #8b8989; 
+  background: #f5f5f5; 
+  margin-top: 1em;
+}
 
-</style>
-</head>
+.center {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    width: 50%;
+}
+
+
+.header-image {
+  width: 98%;
+  height: 100%;
+}
+
+
+.search {
+  background: #60e7f5;
+  color: #ffffff;
+  border: 1px solid #ffffff;
+  width: 60%;
+  height: 120px;
+}
+  </style>
+  </head>
+  
 <body>
 
-
+<!––{{selected_car.car_make}}-->
 
 <div class="slideshow-container">
 
@@ -193,11 +219,11 @@ img {
 
 
 
-<h2 style="text-align:center;" >Lamborghini Urus</h2>
+<h2 style="text-align:center;" >{{selected_car.car_make}} {{selected_car.car_model}} {{selected_car.car_series}}</h2>
 
 <div class="row">
   <div class="column left" style="background-color:#F0F8FF;">
-    <h3>Copied shamelessly from Wikipedia</h3>
+    <h3>Description</h3>
    <p>The Lamborghini Urus is an SUV manufactured by Italian car manufacturer Lamborghini.
 
    </p>
@@ -205,11 +231,17 @@ img {
   
   <div class="column right" style="background-color:#F0F8FF;">
   
-    <h3>Specs    (Also copied)</h3>
+    <h3>Specifications</h3>
     <ul>
-    <li>Class: Mid-size luxury crossover SUV</li>
-    <li>Body: style 5-door SUV</li>
-    <li>Layout: Front-engine, four-wheel-drive</li>
+    <li>Body type: {{selected_car.car_body_type}}</li>
+    <li>Engine size: {{selected_car.car_engine_size}}</li>
+    <li>Fuel Capacity: {{selected_car.car_tank_capacity}}</li>
+    <li>Fuel system: {{selected_car.car_fuel_system}}</li>
+    <li>Power: {{selected_car.car_power}}</li>
+    <li>Seats: {{selected_car.car_seating_capacity}}</li>
+    <li>Standard Transmission: {{selected_car.car_standard_transmission}}</li>
+    <li>Drive: {{selected_car.car_drive}}</li>
+    <li>Wheel base: {{selected_car.car_wheel_base}}</li>
     
 </ul>
   </div>

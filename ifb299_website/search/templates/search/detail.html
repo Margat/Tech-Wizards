@@ -2,18 +2,241 @@
 {% load static %}
 {% block content %}
 {% if selected_car %}
-  <h1>{{selected_car.car_make}} {{selected_car.car_model}} {{selected_car.car_series}}</h1>
-  <ul>Price (NEW): ${{selected_car.car_price_new}}</ul>
-  <ul>Series year: {{selected_car.car_series_year}}</ul>
-  <ul>Engine size: {{selected_car.car_engine_size}}</ul>
-  <ul>Fuel system: {{selected_car.car_fuel_system}}</ul>
-  <ul>Tank capacity: {{selected_car.car_tank_capacity}}</ul>
-  <ul>Power: {{selected_car.car_power}}</ul>
-  <ul>Seating capacity: {{selected_car.car_seating_capacity}}</ul>
-  <ul>Transmission type: {{selected_car.car_standard_transmission}}</ul>
-  <ul>Body type: {{selected_car.car_body_type}}</ul>
-  <ul>Drive: {{selected_car.car_drive}}</ul>
-  <ul>Wheelbase: {{selected_car.car_wheelbase}}</ul>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+<style>
+
+* {box-sizing: border-box;}
+body {font-family: Verdana, sans-serif;}
+.mySlides {display: none;}
+img {vertical-align: right;}
+
+/* Slideshow container */
+.slideshow-container {
+  max-width: 1000px;
+  position: relative;
+  margin-left: 150px;
+  margin-top: 20px;
+}
+
+
+body
+ {background-color: #F0F8FF;}
+
+
+/* Caption text */
+.text {
+  color: #f2f2f2;
+  font-size: 15px;
+  padding: 8px 12px;
+  position: absolute;
+  bottom: 8px;
+  width: 100%;
+  text-align: center;
+}
+
+
+
+/* The dots/bullets/indicators */
+.dot {
+  height: 15px;
+  width: 15px;
+  margin: 0 2px;
+  background-color: #bbb;
+  border-radius: 50%;
+  display: inline-block;
+  transition: background-color 0.6s ease;
+}
+
+.active {
+  background-color: #717171;
+  
+}
+
+/* Fading animation */
+.fade {
+  -webkit-animation-name: fade;
+  -webkit-animation-duration: 10s;
+  animation-name: fade;
+  animation-duration: 10s;
+}
+
+@-webkit-keyframes fade {
+  from {opacity: .4} 
+  to {opacity: 1}
+}
+
+@keyframes fade {
+  from {opacity: .4} 
+  to {opacity: 1}
+}
+
+
+
+ul {    
+    padding: 20px;
+  margin-top: 5px;
+}
+
+ul li {
+    padding: 5px;
+    margin-left: 10px;
+  margin-top: 7px;
+}
+
+* {
+    box-sizing: border-box;
+}
+
+/* Create two unequal columns that floats next to each other */
+.column {
+    float: left;
+    padding: 10px;
+}
+
+.left {
+  width: 69%;
+  box-shadow: 0px 0px 5px darkblue;
+  height: 300px;
+  border-radius: 10px;
+  
+}
+
+.right {
+  width: 30%;
+  box-shadow: 0px 0px 5px darkblue;
+  margin-left: 3px;
+  height: 350px;
+  border-radius: 10px;
+  
+}
+
+/* Clear floats after the columns */
+.row:after {
+    content: "";
+    display: table;
+    clear: both;
+}
+
+
+h2 {
+    color: white;
+    text-shadow: 1px 1px 2px #000000;
+  background-color: black;
+  border-radius: 10px;
+  box-shadow: 0px 0px 5px darkblue ;
+}
+
+img {
+  border-radius: 3%;
+}
+
+.button {
+    background-color: #4CAF50; /* Green */
+    border: none;
+    color: white;
+    padding: 16px 32px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    margin: 20px 500px;
+    -webkit-transition-duration: 0.4s; /* Safari */
+    transition-duration: 0.4s;
+    cursor: pointer;
+}
+
+.button1 {
+    background-color: #5D8AA8; 
+    color: white; 
+    border: 2px solid #F0F8FF;
+  border-radius: 10%;
+}
+
+
+
+.button1:hover {
+    background-color: #F0F8FF;
+    color: black;
+  border: 2px solid #5D8AA8;
+  border-radius: 10%;
+}
+
+
+</style>
+</head>
+<body>
+
+
+
+<div class="slideshow-container">
+
+<div class="mySlides fade">
+  <img src="https://cnet4.cbsistatic.com/img/Dmyt0Djazt7vHsplr6BKpuABxaI=/1600x900/2017/12/04/4cc1c00e-7801-47d9-83f7-ec896d9a8383/lamborghini-urus-3-4-front.jpg" style="width:950px;height:560px;">
+</div>
+
+<div class="mySlides fade">
+  <img src="https://st.motortrend.com/uploads/sites/5/2018/04/2019-Lamborghini-Urus-in-Rome-3.jpg" style="width:950px;height:560px;">
+</div>
+
+<div class="mySlides fade">
+  <img src="https://cdn.vox-cdn.com/thumbor/Rh7ZBRId0_4CuKGHqkJbs1GQBZY=/0x0:3000x1605/1200x800/filters:focal(1005x510:1485x990)/cdn.vox-cdn.com/uploads/chorus_image/image/57854899/493264.0.jpg" style="width:950px;height:560px;">
+</div>
+
+</div>
+<br>
+
+<div style="text-align:center">
+  <span class="dot"></span> 
+  <span class="dot"></span> 
+  <span class="dot"></span> 
+</div>
+
+
+
+<h2 style="text-align:center;" >Lamborghini Urus</h2>
+
+<div class="row">
+  <div class="column left" style="background-color:#F0F8FF;">
+    <h3>Copied shamelessly from Wikipedia</h3>
+   <p>The Lamborghini Urus is an SUV manufactured by Italian car manufacturer Lamborghini.
+
+   </p>
+  </div>
+  
+  <div class="column right" style="background-color:#F0F8FF;">
+  
+    <h3>Specs    (Also copied)</h3>
+    <ul>
+    <li>Class: Mid-size luxury crossover SUV</li>
+    <li>Body: style 5-door SUV</li>
+    <li>Layout: Front-engine, four-wheel-drive</li>
+    
+</ul>
+  </div>
+  <button class="button button1">RENT</button>
+</div>
+
+<script>
+var slideIndex = 0;
+showSlides();
+
+function showSlides() {
+    var i;
+    var slides = document.getElementsByClassName("mySlides");
+    var dots = document.getElementsByClassName("dot");
+    for (i = 0; i < slides.length; i++) {
+       slides[i].style.display = "none"; 
+    }
+    slideIndex++;
+    if (slideIndex > slides.length) {slideIndex = 1}    
+    for (i = 0; i < dots.length; i++) {
+        dots[i].className = dots[i].className.replace(" active", "");
+    }
+    setTimeout(showSlides, 2000); // Change image every 2 seconds
+    slides[slideIndex-1].style.display = "block";
+    dots[slideIndex-1].className += " active";
+}
+</script>
 {% else %}
   <h1>Error! Car not found</h1>
 {% endif %}

@@ -18,6 +18,7 @@ def home(request):
         max_price = form.cleaned_data['max_price']
         year = form.cleaned_data['year']
         sort = form.cleaned_data['sort']
+
         if not min_price:
             min_price = 0
         if not max_price:

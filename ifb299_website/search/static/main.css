@@ -20,6 +20,159 @@ div>table {
   float: left
 }
 
+
+/* Styling for the detail page*/
+* {box-sizing: border-box;}
+.mySlides {display: none;}
+img {vertical-align: right;}
+
+/* Slideshow container */
+.slideshow-container {
+  max-width: 1000px;
+  position: relative;
+  margin-left: 150px;
+  margin-top: 20px;
+}
+
+
+/* Caption text */
+.text {
+  color: #f2f2f2;
+  font-size: 15px;
+  padding: 8px 12px;
+  position: absolute;
+  bottom: 8px;
+  width: 100%;
+  text-align: center;
+}
+
+
+
+/* The dots/bullets/indicators */
+.dot {
+  height: 15px;
+  width: 15px;
+  margin: 0 2px;
+  background-color: #bbb;
+  border-radius: 50%;
+  display: inline-block;
+  transition: background-color 0.6s ease;
+}
+
+.active {
+  background-color: #717171;
+  
+}
+
+/* Fading animation */
+.fade {
+  -webkit-animation-name: fade;
+  -webkit-animation-duration: 10s;
+  animation-name: fade;
+  animation-duration: 10s;
+}
+
+@-webkit-keyframes fade {
+  from {opacity: .4} 
+  to {opacity: 1}
+}
+
+@keyframes fade {
+  from {opacity: .4} 
+  to {opacity: 1}
+}
+
+
+
+ul {    
+    padding: 20px;
+  margin-top: 5px;
+}
+
+ul li {
+    padding: 5px;
+    margin-left: 10px;
+  margin-top: 7px;
+}
+
+* {
+    box-sizing: border-box;
+}
+
+/* Create two unequal columns that floats next to each other */
+.column {
+    float: left;
+    padding: 10px;
+}
+
+.left {
+  width: 69%;
+  box-shadow: 0px 0px 5px darkblue;
+  height: 300px;
+  border-radius: 10px;
+  
+}
+
+.right {
+  width: 30%;
+  box-shadow: 0px 0px 5px darkblue;
+  margin-left: 3px;
+  height: 350px;
+  border-radius: 10px;
+  
+}
+
+/* Clear floats after the columns */
+.row:after {
+    content: "";
+    display: table;
+    clear: both;
+}
+
+
+h2 {
+    color: white;
+    text-shadow: 1px 1px 2px #000000;
+  background-color: black;
+  border-radius: 10px;
+  box-shadow: 0px 0px 5px darkblue ;
+}
+
+img {
+  border-radius: 3%;
+}
+
+.button {
+    background-color: #4CAF50; /* Green */
+    border: none;
+    color: white;
+    padding: 16px 32px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    margin: 20px 500px;
+    -webkit-transition-duration: 0.4s; /* Safari */
+    transition-duration: 0.4s;
+    cursor: pointer;
+}
+
+.button1 {
+    background-color: #5D8AA8; 
+    color: white; 
+    border: 2px solid #F0F8FF;
+  border-radius: 10%;
+}
+
+
+
+.button1:hover {
+    background-color: #F0F8FF;
+    color: black;
+  border: 2px solid #5D8AA8;
+  border-radius: 10%;
+}
+
 .cell {
   width: 32%; 
   margin-right: 
@@ -38,11 +191,6 @@ div>table {
     width: 50%;
 }
 
-.centre {
-  display: block;
-  margin-top: auto;
-  margin-bottom: auto;
-}
 
 .header-image {
   width: 98%;
@@ -58,6 +206,27 @@ div>table {
   height: 120px;
 }
 
+/*
+* Styling for the Search box
+*/
+.textSearch {
+  font-weight: bold;
+  margin-left: 1em;
+}
+
+.search-box {
+  border:1px solid black; 
+  border-color: #000; 
+  width: 500px; 
+  background: #ffffff; 
+  margin-left: auto; 
+  margin-right: auto; 
+  display: block
+}
+
+/*
+* Styling for the navigation bar
+*/
 .bg-steel {
   background-color: #5f788a;
 }

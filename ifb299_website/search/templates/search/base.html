@@ -10,17 +10,19 @@
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
 
 	<link rel="stylesheet" type="text/css" href="{% static '/main.css' %}">
-
+  <!-- Changes title of open tab -->
 	{% if title %}
 		<title>{{ title }}</title>
 	{% else %}
 		<title> Car Rentals</title>
 	{% endif %}
   </head>
+  <!-- Puts up image on the homepage -->
   <body style="background:  #F0F8FF">
   {% if title == "Home" %}
         <img src="{% static 'car_banner.jpg' %}" alt="Cars" style="border:1px solid black; display: block; margin-right: auto; margin-left: auto;" width="90%" height="100%"></img>
       {% endif %}
+      <!-- Creates navigation bar -->
 	<header class="site-header">
       <nav class="navbar navbar-expand-md navbar-dark bg-steel fixed-top">
         <div class="container">

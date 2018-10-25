@@ -27,10 +27,11 @@
 	float: left; 
 	margin-bottom: 1em; 
 	margin-right: 0.7em; 
-	padding: 10px
+	padding: 10px;
 }
 </style>
 </head>
+<!--Creates search box, creates new lines after search text box and max price-->
 <form action="{% url 'search:home' %}" method="GET">
 	<div class="search-box">
 		<p style="margin-left: 2em;"><h2 style="text-align: center;">Search for cars</h2></p>
@@ -50,18 +51,20 @@
   		<p style="margin-bottom: 5px; margin-left: 420px;"><input type ="submit" value="Submit"></p>
   	</div>
 </form>
-
+<!--If no results found, simply displays 'No results found'-->
 {% if car_query_list %}
 	<h3>Results Found</h3>
 	
 	<div style="background-color: #ffffff; margin-top: 1em;">
     {% for car in car_query_list %}
+    <!-- Creates list item, will select image based on car make and model-->
     <table class="list-box">
 	    <tbody>
 	        <tr>
 	            <td colspan="2" style="width: 99.6466%; background-color: #ffffff"><img src="/static/{{car.car_make}}/{{car.car_make}}_{{car.car_model}}.jpg" style="width: 240px; height: 170px; display: block; margin-left: auto; margin-right: auto" class="fr-fic fr-dib"></td>
 	        </tr>
 	        <tr>
+	        	<!--Creates blue band with black text giving the cars make, model, series and year -->
 	            <td colspan="2" style="width: 99.6466%; text-align: center; background-color: #5D8AA8;"><strong style="font-family: Arial;">{{car.car_make}} {{car.car_model}} {{car.car_series}} - {{car.car_series_year}}</strong></td>
 	        </tr>
 	        <tr>

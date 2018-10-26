@@ -1,7 +1,7 @@
 from django.shortcuts import render, get_object_or_404, redirect
 from django.http import HttpResponse
 from django.db.models import Q
-from .models import Car
+from .models import Car, Store
 from .forms import SearchForm
 from django.shortcuts import render
 
@@ -67,7 +67,9 @@ def about(request):
 # View to handle Locations page requests
 def locations(request):
     title = "Locations"
+    storeList = Store.objects.all()
     context = {
-        'title': title
+        'title': title,
+        'storeList': storeList
         }
     return render(request, 'search/locations.html', context)

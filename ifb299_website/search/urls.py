@@ -7,5 +7,5 @@ urlpatterns = [
     path('details/<int:id>/', views.car_detail, name='car_detail'), # Passes parameter <int:id> (car.car_id) to dynamically create details page
     path('about/', views.about, name='about'),
     path('search/', views.about, name='search'),
-    path('locations/', views.about, name='locations'),
+    path('locations/', views.locations, name='locations'),
 ]

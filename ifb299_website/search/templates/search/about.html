@@ -1,4 +1,5 @@
 {% extends "search/base.html" %}
+{% load static %}
 {% block content %}
 
 
@@ -7,16 +8,15 @@
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
   <!-- Bootstrap CSS -->
-  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+
 
 
 <title>About Us</title>
 <head/>
-<body style="background:  #F0F8FF">
 
-<div style="width: 700px; margin-left: auto; margin-right: auto" >
-  <h2 margin = center >About Us<h2/>
-      <font size = "3" style="font-family: Arial; margin-left: 1em;">
+<div style="width: 700px; margin-left: auto; margin-right: auto; background: #F0F8FF;" >
+  <h2 margin = center>About Us<h2/>
+      <font size = "3" style="font-family: Arial; margin-left: 1em; background: #F0F8FF; ">
       <p>We strive to make renting a car as simple and easy as driving your own car.</br></br>
 
         Renting a car brings you freedom and we want to help you find the right car for you at the right price.
@@ -26,7 +26,7 @@
         We offer a range of features to make be sure you can find the right car for you:
         <p/>
 
-          <ul style="list-style-type:circle; list-style-image: url('https://d2ztnewirs5p02.cloudfront.net/categories/common/page-icons/ic_car-201712121112.png')"><li><b>Search:</b> You can search the site for the car you want</li>
+          <ul style="margin-left: 2em; list-style-type:circle; list-style-image: url('https://d2ztnewirs5p02.cloudfront.net/categories/common/page-icons/ic_car-201712121112.png')"><li><b>Search:</b> You can search the site for the car you want</li>
           <li><b>Tailor your search:</b> You can filter your results based on a criteria of your choosing</li>
           <li><b>View detailed car info: </b> You can view information in detail of all of our cars</li>
           <li><b>Location info: </b> You can view the locations of all our stores and the cars available at which locations using a Google Maps functionality</li>
@@ -39,10 +39,5 @@
 
 <img src='https://carsirent.com/blog/wp-content/uploads/2017/10/car-rental-stock.jpg' width="700" height="300"></img>
 </div>
-<div>
-
-</div>
-</body>
-
 
 {% endblock content%}

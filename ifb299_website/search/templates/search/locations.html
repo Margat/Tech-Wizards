@@ -1,4 +1,118 @@
 {% extends "search/base.html" %}
+{% load static %}
 {% block content %}
+ <head>
+    <style>
+       /* Set the size of the div element that contains the map */
+      #map {
+        height: 400px;  /* The height is 400 pixels */
+        width: 100%;  /* The width is the width of the web page */
+       }
+    </style>
+  </head>
+    <!--The div element for the map -->
+<body>
+    <h3>Store Locations</h3>
+    <!--The div element for the map -->
+    <div id="map"></div>
+    <script>
+// Initialize and add the map
+var map;
+var storeList = "{{ storeList }}";
+function initMap() {
+  // The location of Uluru
+  var location1 = {lat: -27.599109 , lng: 152.989761};
+  var location2 = {lat: -27.4992  , lng:153.05975};
+  var location3 = {lat:-26.805397 , lng:153.138292};
+  var location4 = {lat:-33.817044 , lng:151.090051};
+  var location5 = {lat:-33.740985 , lng:150.73126};
+  var location6 = {lat:-27.854847 , lng:153.07367};
+  var location7 = {lat:-33.834435 , lng:151.017691};
+  var location8 = {lat:-33.919342 , lng:151.254569};
+  var location9 = {lat:-33.162227 , lng:148.838835};
+  var location10 = {lat:-32.003418  , lng:151.966398};
+  var location11 = {lat:-33.947332  , lng:150.94269};
+  var location12 = {lat:-32.354025  , lng:115.80523};
+  var location13 = {lat:-33.924854  , lng:150.924579};
+  var location14 = {lat:-33.729746  , lng:150.97461};
+  var location15 = {lat:-32.728973  , lng:151.623646};
+  var location16 = {lat:-31.110027  , lng:150.908367};
+  var location17 = {lat:-33.734984  , lng:150.95135};
+  var location18 = {lat:-33.580019  , lng:150.41752};
+  var location19 = {lat:-33.823657  , lng:151.158688};
+  var location20 = {lat:-12.663312  , lng:141.848581};
+  var location21 = {lat:-27.413758  , lng:153.044573};
+  var location22 = {lat:-27.620934  , lng:152.96101};
+  var location23 = {lat:-27.616911  , lng:152.757974};
+  var location24 = {lat:-33.045454  , lng:151.452469};
+  var location25 = {lat:-27.451585  , lng:153.062821};
+  var location26 = {lat:-23.323366  , lng:150.51601};
+  var location27 = {lat:-33.824047  , lng:151.090015};
+  var location28 = {lat:-33.904033  , lng:151.062713};
+  var location29 = {lat:-33.938864  , lng:151.069315};
+  var location30 = {lat:-33.774971  , lng:150.984614};
 
-{% endblock content%}
+
+    // The map, centered at Uluru
+  map = new google.maps.Map(
+      document.getElementById('map'), {zoom: 4, center: location1});
+  // The marker, positioned at Uluru
+  var marker = new google.maps.Marker({position: location1, map: map});
+  var marker = new google.maps.Marker({position: location2, map: map});
+  var marker = new google.maps.Marker({position: location3, map: map});
+  var marker = new google.maps.Marker({position: location4, map: map});
+  var marker = new google.maps.Marker({position: location5, map: map});
+  var marker = new google.maps.Marker({position: location6, map: map});
+  var marker = new google.maps.Marker({position: location7, map: map});
+  var marker = new google.maps.Marker({position: location8, map: map});
+  var marker = new google.maps.Marker({position: location9, map: map});
+  var marker = new google.maps.Marker({position: location10, map: map});
+  var marker = new google.maps.Marker({position: location11, map: map});
+  var marker = new google.maps.Marker({position: location12, map: map});
+  var marker = new google.maps.Marker({position: location13, map: map});
+  var marker = new google.maps.Marker({position: location14, map: map});
+  var marker = new google.maps.Marker({position: location15, map: map});
+  var marker = new google.maps.Marker({position: location16, map: map});
+  var marker = new google.maps.Marker({position: location17, map: map});
+  var marker = new google.maps.Marker({position: location18, map: map});
+  var marker = new google.maps.Marker({position: location19, map: map});
+  var marker = new google.maps.Marker({position: location20, map: map});
+  var marker = new google.maps.Marker({position: location21, map: map});
+  var marker = new google.maps.Marker({position: location22, map: map});
+  var marker = new google.maps.Marker({position: location23, map: map});
+  var marker = new google.maps.Marker({position: location24, map: map});
+  var marker = new google.maps.Marker({position: location25, map: map});
+  var marker = new google.maps.Marker({position: location26, map: map});
+  var marker = new google.maps.Marker({position: location27, map: map});
+  var marker = new google.maps.Marker({position: location28, map: map});
+  var marker = new google.maps.Marker({position: location29, map: map});
+  var marker = new google.maps.Marker({position: location30, map: map});
+}
+
+    </script>
+    <!--Load the API from the specified URL
+    * The async attribute allows the browser to render the page while the API loads
+    * The key parameter will contain your own API key (which is not needed for this tutorial)
+    * The callback parameter executes the initMap() function
+    -->
+    <script async defer
+    src="https://maps.googleapis.com/maps/api/js?key=YOURKEY&callback=initMap">
+    </script>
+  </body>
+
+
+
+    </script>
+    <!--Load the API from the specified URL
+    * The async attribute allows the browser to render the page while the API loads
+    * The key parameter will contain your own API key (which is not needed for this tutorial)
+    * The callback parameter executes the initMap() function
+    -->
+    <script async defer
+    src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAJzur3qhAB8WE6e_XtS8-DQ2JO8mbkmnw&callback=initMap">
+    </script>
+<h1> Our Stores </h1>
+    {% for store in storeList %}
+      <ol>{{store.store_city}} {{store.store_state}} {{store.store_address}}</ol>
+    {% endfor %}
+{% endblock content %}

@@ -20,7 +20,13 @@ https://www.python.org/downloads/
 https://docs.djangoproject.com/en/2.1/topics/install/
 3. Install MySQL Workbench
 
-* Database configuration
+* Database configuration:
+- Create an empty mySQL database named 'ifb299_db'
+- Create a mySQL user for Django to use to connect and interact with the database
+- In the project directory, run python manage.py migrate (this generates all tables necessary for the webapp)
+- via the mySQL workbench 'data import wizard' use the CSV files in the git repository to populate the search_car, search_store, search_customer and search_order   tables.
+- Run the server!
+
 * How to run tests
 To run the website run the below command in command prompt(or similar)
 'python manage.py runserver'
